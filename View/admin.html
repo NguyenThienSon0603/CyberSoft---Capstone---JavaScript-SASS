@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../CSS/main.css">
+    <title>CyberSoft - Capstone - JavaScript & SASS</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1>CyberPhone</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./customer.html">Customer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Quản Lý Sản Phẩm -->
+    <section class="management">
+        <div class="header-Management">
+            <h2 class="header-tittle">Phone Management</h2>
+            <div class="header-action">
+                <div class="search">
+                    <input id="txtSearch" type="text" placeholder="Enter product name ...">
+                    <button id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <button id="add-Phone">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span>Add Phone</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="content-Management">
+            <table>
+                <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>
+                        <button id="sortPrice">
+                            <i class="fa-solid fa-arrows-up-down"></i>
+                            <span>Price</span>
+                        </button>
+                    </th>
+                    <th>Screen</th>
+                    <th>Back Camera</th>
+                    <th>Front Camera</th>
+                    <th>Image</th>
+                    <th>Desciption</th>
+                    <th>
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Action</span>
+                    </th>
+                </thead>
+                <tbody id="productList-tbody">
+                    <!-- Danh sách sản phẩm thêm bằng JS -->
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>Iphone X</td>
+                        <td>150$</td>
+                        <td>Màn hình full HD</td>
+                        <td>3 camera</td>
+                        <td>1 camera</td>
+                        <td>
+                            <img src="https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-black-thumb-600x600.jpg"
+                                alt="Product">
+                        </td>
+                        <td>mô tả sản phẩm</td>
+                        <td>
+                            <div>
+                                <button class="btn-Update">Update</button>
+                                <button class="btn-Delete">Delete</button>
+                            </div>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Product Information</h2>
+
+            <!-- Form nhập liệu -->
+            <form id="productForm">
+                <label for="productName">Name:</label>
+                <input type="text" id="productName"><br>
+                <p id="errorName" class="error"></p>
+
+                <label for="productPrice">Price:</label>
+                <input type="number" id="productPrice"><br>
+                <p id="errorPrice" class="error"></p>
+
+                <label for="productScreen">Screen:</label>
+                <input type="text" id="productScreen"><br>
+                <p id="errorScreen" class="error"></p>
+
+                <label for="productBackCamera">Back Camera:</label>
+                <input type="text" id="productBackCamera"><br>
+                <p id="errorBack" class="error"></p>
+
+                <label for="productFontCamera">Front Camera:</label>
+                <input type="text" id="productFontCamera"><br>
+                <p id="errorFront" class="error"></p>
+
+                <label for="productImage">Image:</label>
+                <input type="text" id="productImage"><br>
+                <p id="errorImg" class="error"></p>
+
+                <label for="productDescription">Description:</label>
+                <textarea id="productDescription" rows="4"></textarea><br>
+                <p id="errorDesc" class="error"></p>
+
+                <label for="productType">Type:</label>
+                <select id="productType">
+                    <option value="iphone">Iphone</option>
+                    <option value="samsung">Samsung</option>
+                </select><br>
+
+                <!-- Nút Cập nhật và Đóng popup -->
+                <div class="btnAction">
+                    <button form="productForm" type="submit" id="btnUpdate">Update</button>
+                    <button type="button" id="btnClose">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Axios CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+        integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- main JS -->
+    <script type="module" src="../JS/admin.js"></script>
+</body>
+
+</html>

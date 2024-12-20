@@ -1,0 +1,65 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $bg-Black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // Logo
+    h1{
+        @include styleText($fs-3, $fw-3, $color-yellow);
+        cursor: pointer;
+    }
+
+    // nav
+    li{
+        display: inline-block;
+
+        a{
+            color: $color-white;
+            position: relative;
+
+            &::after{
+                content: '';
+                width: 0;
+                height: 2px;
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                background-color: $bg-White;
+                transition: .2s linear;
+            }
+            &:hover::after{
+                width: 100%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+
+    // Button Cart
+    #btn-Cart{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 5px;
+
+        i{
+            position: relative;
+            color: $color-white;
+            font-size: 40px;
+
+            #count-Quantity-Cart{
+                position: absolute;
+                top: 5px;
+                left: 20px;
+                color: $color-Black;
+                font-size: 15px;
+            }
+        }
+    }
+}

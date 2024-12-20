@@ -1,0 +1,148 @@
+.management {
+    margin-top: 70px;
+    padding: 0 20px;
+
+    .header-Management {
+        background-color: $bg-header;
+        color: $color-white;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 640px) {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .header-tittle {
+            letter-spacing: 2px;
+        }
+
+        .header-action {
+            display: flex;
+            gap: 10px;
+
+            .search {
+                background-color: aliceblue;
+                padding: 5px;
+                border-radius: 5px;
+
+                #txtSearch {
+                    outline: none;
+                    background-color: transparent;
+                    border: none;
+                }
+                #btnSearch{
+                    cursor: pointer;
+                    background-color: transparent;
+                    border: none;
+
+                    i {
+                        color: rgb(71, 127, 127);
+                    }
+                }
+            }
+        }
+
+
+
+        #add-Phone {
+            @include styleButton($bg-White, $color-Black, 5px, 15px, none, 5px);
+            cursor: pointer;
+            font-weight: $fw-3;
+            transition: .2s linear;
+
+            &:hover {
+                background-color: $bg-White;
+                color: $color-red;
+            }
+        }
+    }
+
+    .content-Management {
+        overflow-x: auto;
+
+        img {
+            max-width: 50px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+
+            th,
+            td {
+                border: 2px solid rgb(193, 103, 103);
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            thead {
+                background-color: rgb(230, 199, 158);
+
+                th:nth-child(3) {
+                    padding: 0;
+
+                    #sortPrice {
+                        width: 100%;
+                        height: 100%;
+                        cursor: pointer;
+                        background-color: transparent;
+                        border: none;
+                        font-weight: $fw-3;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    transition: .2s linear;
+
+                    &:hover {
+                        background-color: rgb(187, 243, 243);
+                    }
+                }
+
+                td:nth-child(2),
+                td:nth-child(8) {
+                    width: 300px;
+                    text-align: left;
+                }
+
+                td:nth-child(9) div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .btn-Update {
+                    @include styleButton($bg-yellow-2, $color-Black, 5px, 15px, none, 5px);
+                    font-weight: $fw-3;
+                    transition: .2s linear;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(231, 211, 187);
+                    }
+                }
+
+                .btn-Delete {
+                    @include styleButton($bg-pink, $color-white, 5px, 15px, none, 5px);
+                    font-weight: $fw-3;
+                    transition: .2s linear;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(241, 113, 113);
+                    }
+                }
+            }
+        }
+    }
+}

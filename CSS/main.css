@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Nunito Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+#cart {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  background-color: #e1dfdf;
+  max-width: 500px;
+  width: 100%;
+  z-index: 100;
+  padding: 20px;
+  transform: translateX(500px);
+  transition: 0.2s linear;
+}
+#cart .cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 20px;
+}
+#cart .cart-header #close-cart {
+  background: red;
+  color: #000;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s linear;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 300;
+}
+#cart .cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+#cart .cart-footer #checkout {
+  background: rgb(255, 255, 204);
+  color: #000;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s linear;
+}
+#cart .cart-footer #checkout:hover {
+  background-color: rgb(226, 226, 182);
+}
+#cart .cart-body {
+  min-height: 70vh;
+}
+#cart .cart-body img {
+  max-width: 50px;
+  border-radius: 5px;
+}
+#cart .cart-body table {
+  border-collapse: collapse;
+  width: 460px;
+  text-align: center;
+}
+#cart .cart-body table th, #cart .cart-body table td {
+  border: 1px solid black;
+  padding: 5px;
+}
+#cart .cart-body table td:first-child,
+#cart .cart-body table td:nth-child(3),
+#cart .cart-body table td:nth-child(4) {
+  max-width: 60px;
+  overflow: hidden;
+}
+#cart .cart-body table td:nth-child(2) {
+  text-align: left;
+  max-width: 250px;
+  overflow: auto;
+}
+#cart .cart-body table i {
+  cursor: pointer;
+}
+#cart .cart-body table thead tr {
+  background-color: rgb(226, 226, 182);
+}
+#cart .cart-body table tbody tr {
+  transition: 0.2s linear;
+}
+#cart .cart-body table tbody tr:nth-child(even) {
+  background-color: rgb(237, 238, 238);
+}
+#cart .cart-body table tbody tr:hover {
+  background-color: rgb(198, 255, 255);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(245, 245, 26);
+  cursor: pointer;
+}
+header li {
+  display: inline-block;
+}
+header li a {
+  color: #fff;
+  position: relative;
+}
+header li a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  background-color: #FFF;
+  transition: 0.2s linear;
+}
+header li a:hover::after {
+  width: 100%;
+  transform: translateX(-50%);
+}
+header #btn-Cart {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+}
+header #btn-Cart i {
+  position: relative;
+  color: #fff;
+  font-size: 40px;
+}
+header #btn-Cart i #count-Quantity-Cart {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  color: #000;
+  font-size: 15px;
+}
+
+.productsList-container {
+  margin-top: 90px;
+  padding: 0 20px;
+}
+.productsList-container .productsList-nav {
+  margin: 20px auto;
+  text-align: center;
+}
+.productsList-container .productsList-nav a {
+  background-color: rgb(245, 245, 26);
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.2s linear;
+}
+.productsList-container .productsList-nav a:hover {
+  background-color: rgb(216, 216, 53);
+}
+.productsList-container .productsList-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 1280px) {
+  .productsList-container .productsList-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .productsList-container .productsList-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .productsList-container .productsList-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 640px) {
+  .productsList-container .productsList-content {
+    grid-template-columns: 1fr;
+  }
+}
+.productsList-container .productsList-content .productsList-Item {
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgb(221, 219, 219);
+  transition: 0.2s linear;
+}
+.productsList-container .productsList-content .productsList-Item:hover {
+  border: 1px solid rgb(150, 148, 148);
+  box-shadow: 0 0 20px rgb(231, 215, 215);
+}
+.productsList-container .productsList-content .productsList-Item:hover img {
+  transform: scale(1.1);
+}
+.productsList-container .productsList-content .productsList-Item .product-img {
+  text-align: center;
+}
+.productsList-container .productsList-content .productsList-Item .product-img img {
+  max-width: 250px;
+  object-fit: fill;
+  border-radius: 10px;
+  transition: 0.2s linear;
+}
+.productsList-container .productsList-content .productsList-Item .product-content {
+  margin-top: 20px;
+}
+.productsList-container .productsList-content .productsList-Item .product-content .product-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+}
+.productsList-container .productsList-content .productsList-Item .product-content .product-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: red;
+  margin-top: 5px;
+}
+.productsList-container .productsList-content .productsList-Item .product-content .btn-Button #product-btnAddtoCart {
+  background: rgb(245, 245, 26);
+  color: #000;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s linear;
+}
+.productsList-container .productsList-content .productsList-Item .product-content .btn-Button #product-btnAddtoCart:hover {
+  background-color: rgb(216, 216, 53);
+}
+
+.management {
+  margin-top: 70px;
+  padding: 0 20px;
+}
+.management .header-Management {
+  background-color: #60679B;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 640px) {
+  .management .header-Management {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.management .header-Management .header-tittle {
+  letter-spacing: 2px;
+}
+.management .header-Management .header-action {
+  display: flex;
+  gap: 10px;
+}
+.management .header-Management .header-action .search {
+  background-color: aliceblue;
+  padding: 5px;
+  border-radius: 5px;
+}
+.management .header-Management .header-action .search #txtSearch {
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+.management .header-Management .header-action .search #btnSearch {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.management .header-Management .header-action .search #btnSearch i {
+  color: rgb(71, 127, 127);
+}
+.management .header-Management #add-Phone {
+  background: #FFF;
+  color: #000;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s linear;
+}
+.management .header-Management #add-Phone:hover {
+  background-color: #FFF;
+  color: red;
+}
+.management .content-Management {
+  overflow-x: auto;
+}
+.management .content-Management img {
+  max-width: 50px;
+  width: 100%;
+  border-radius: 5px;
+}
+.management .content-Management table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+.management .content-Management table th,
+.management .content-Management table td {
+  border: 2px solid rgb(193, 103, 103);
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.management .content-Management table thead {
+  background-color: rgb(230, 199, 158);
+}
+.management .content-Management table thead th:nth-child(3) {
+  padding: 0;
+}
+.management .content-Management table thead th:nth-child(3) #sortPrice {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+}
+.management .content-Management table tbody tr {
+  transition: 0.2s linear;
+}
+.management .content-Management table tbody tr:hover {
+  background-color: rgb(187, 243, 243);
+}
+.management .content-Management table tbody td:nth-child(2),
+.management .content-Management table tbody td:nth-child(8) {
+  width: 300px;
+  text-align: left;
+}
+.management .content-Management table tbody td:nth-child(9) div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.management .content-Management table tbody .btn-Update {
+  background: rgb(216, 216, 53);
+  color: #000;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+.management .content-Management table tbody .btn-Update:hover {
+  background-color: rgb(231, 211, 187);
+}
+.management .content-Management table tbody .btn-Delete {
+  background: rgb(242, 53, 53);
+  color: #fff;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+.management .content-Management table tbody .btn-Delete:hover {
+  background-color: rgb(241, 113, 113);
+}
+
+#popup {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.533);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+#popup .popup-content {
+  background-color: #FFF;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+#popup .popup-content h2 {
+  color: rgb(19, 19, 102);
+  background-color: rgb(168, 165, 219);
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#popup .popup-content #productForm {
+  padding: 0 10px 10px;
+}
+#popup .popup-content #productForm .error {
+  color: red;
+  text-align: right;
+  margin-right: 10px;
+  display: none;
+}
+#popup .popup-content #productForm label {
+  display: inline-block;
+  width: 120px;
+}
+#popup .popup-content #productForm input,
+#popup .popup-content #productForm textarea,
+#popup .popup-content #productForm select {
+  width: 65%;
+  margin-top: 10px;
+  outline: none;
+  padding: 5px;
+  border: 1px solid rgb(225, 201, 201);
+}
+#popup .popup-content #productForm .btnAction {
+  text-align: right;
+  padding: 10px;
+}
+#popup .popup-content #productForm .btnAction #btnUpdate {
+  background: rgb(58, 16, 226);
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+#popup .popup-content #productForm .btnAction #btnUpdate:hover {
+  background-color: rgb(132, 12, 231);
+}
+#popup .popup-content #productForm .btnAction #btnClose {
+  background: rgb(226, 83, 16);
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+#popup .popup-content #productForm .btnAction #btnClose:hover {
+  background-color: rgb(230, 108, 71);
+}
+
+footer {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+footer div {
+  margin-top: 20px;
+}
+footer div i:first-child {
+  margin-left: 0;
+}
+footer div i {
+  background-color: rgb(242, 53, 53);
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+footer div i::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+footer div i:hover {
+  background-color: rgb(245, 245, 26);
+  color: #000;
+}/*# sourceMappingURL=main.css.map */

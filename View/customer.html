@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../CSS/main.css">
+    <title>CyberSoft - Capstone - JavaScript & SASS</title>
+</head>
+
+<body>
+    <!-- CART -->
+    <article id="cart">
+        <div class="cart-header">
+            <h2>Cart</h2>
+            <button id="close-cart">X</button>
+        </div>
+        <div class="cart-body">
+            <table id="cart-items">
+                <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-Products">
+                    <!-- Danh sách giỏ hàng thêm bằng JS -->
+                    <!-- <tr>
+                        <td>
+                            <img src="https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-black-thumb-600x600.jpg"
+                        alt="Product">
+                        </td>
+                        <td>Iphone X</td>
+                        <td>100$</td>
+                        <td>
+                            <span><i class="fa-solid fa-minus"></i></span>
+                            <span id="quantity">10</span>
+                            <span><i class="fa-solid fa-plus"></i></span>
+                        </td>
+                        <td><i class="fa-solid fa-trash-can"></i></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="cart-footer">
+            <p>Tổng tiền: <span id="total-price">0</span> $</p>
+            <button id="checkout">Pay money</button>
+        </div>
+    </article>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1>CyberPhone</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./admin.html">Admin</a></li>
+                <li>
+                    <button id="btn-Cart">
+                        <i class="fa-solid fa-cart-shopping">
+                            <span id="count-Quantity-Cart">0</span>
+                        </i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ProductsList -->
+    <section class="productsList-container">
+        <div class="productsList-nav">
+            <a id="iphone" href="#"><span>Iphone</span></a>
+            <a id="samsung" href="#"><span>Samsung</span></a>
+        </div>
+        <div id="productsList-content" class="productsList-content">
+
+            <!-- Danh sách sản phẩm thêm bằng JS -->
+            <!-- <div class="productsList-Item">
+                <div class="product-img">
+                    <img src="https://cdn.tgdd.vn/Products/Images/42/329149/iphone-16-pro-max-black-thumb-600x600.jpg"
+                        alt="Product">
+                </div>
+                <div class="product-content">
+                    <div class="product-tiltle">
+                        <p class="product-name">Iphone X</p>
+                        <p class="product-price">150$</p>
+                    </div>
+                    <div class="btn-Button">
+                        <button id="product-btnAddtoCart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+       
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Design by Thiên Sơn 2024</p>
+        <div>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+    </footer>
+
+
+
+     <!-- Axios CDN -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+     integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- main JS -->
+    <script type="module" src="../JS/customer.js"></script>
+</body>
+
+</html>

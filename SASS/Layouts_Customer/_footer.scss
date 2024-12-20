@@ -1,0 +1,36 @@
+footer{
+    text-align: center;
+    background-color: $bg-Black;
+    color: $color-white;
+    padding: 20px;
+
+    div{
+        margin-top: 20px;
+       
+        i:first-child{
+            margin-left: 0;
+        }
+        i{
+            background-color: $bg-pink;
+            margin-left: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            transition: .2s linear;
+            
+            &::before{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 20px;
+            }
+            &:hover{
+             background-color: $bg-yellow;
+                color: $color-Black;
+            }
+        }
+    }
+}

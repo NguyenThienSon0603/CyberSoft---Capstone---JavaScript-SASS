@@ -1,0 +1,97 @@
+#cart {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    background-color: $bg-cart;
+    max-width: 500px;
+    width: 100%;
+    z-index: 100;
+    padding: 20px;
+    transform: translateX(500px);
+    transition: .2s linear;
+
+    .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 20px;
+
+        #close-cart {
+            @include styleButton($color-red, $color-Black, 5px, 10px, none, 5px);
+            cursor: pointer;
+            transition: .2s linear;
+            font-size: 16px;
+            color: $color-white;
+            font-weight: $fw-2;
+        }
+    }
+
+    .cart-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        #checkout {
+            @include styleButton($bg-yellow-3, $color-Black, 5px, 10px, none, 5px);
+            cursor: pointer;
+            font-weight: $fw-3;
+            transition: .2s linear;
+
+            &:hover {
+                background-color: $bg-yellow-4;
+            }
+        }
+    }
+
+    .cart-body{
+        min-height: 70vh;
+
+        img{
+            max-width: 50px;
+            border-radius: 5px;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 460px;
+            text-align: center;
+
+            th, td{
+                border: 1px solid black;
+                padding: 5px;
+            }
+
+            td:first-child,
+            td:nth-child(3),
+            td:nth-child(4){
+                max-width: 60px;
+                overflow: hidden;
+            }
+            td:nth-child(2){
+                text-align: left;
+                max-width: 250px;
+                overflow: auto;
+            }
+            i{
+                cursor: pointer;
+            }
+            thead tr{
+                background-color: $bg-yellow-4;
+            }
+
+            tbody tr{
+                transition: .2s linear;
+                &:nth-child(even){
+                    background-color: rgb(237, 238, 238);
+                }
+                &:hover{
+                    background-color: rgb(198, 255, 255);
+                }
+            }
+            
+        }
+         
+    }
+
+}

@@ -1,0 +1,86 @@
+#popup {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.533);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    .popup-content {
+        background-color: $bg-White;
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+
+        h2 {
+            color: $color-blue;
+            background-color: $bg-blue;
+            font-size: $fs-3;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #productForm {
+            padding: 0 10px 10px;
+
+            .error {
+                color: $color-red;
+                text-align: right;
+                margin-right: 10px;
+                display: none;
+            }
+
+            label {
+                display: inline-block;
+                width: 120px;
+            }
+
+            input,
+            textarea,
+            select {
+                width: 65%;
+                margin-top: 10px;
+                outline: none;
+                padding: 5px;
+                border: 1px solid rgb(225, 201, 201);
+
+            }
+
+            .btnAction {
+                text-align: right;
+                padding: 10px;
+
+                #btnUpdate {
+                    @include styleButton($bg-blue-2, $color-white, 5px, 10px, none, 5px);
+                    font-weight: $fw-3;
+                    cursor: pointer;
+                    transition: .2s linear;
+
+                    &:hover {
+                        background-color: $bg-blue-2-hover ;
+                    }
+                }
+
+                #btnClose {
+                    @include styleButton($bg-red, $color-white, 5px, 10px, none, 5px);
+                    font-weight: $fw-3;
+                    cursor: pointer;
+                    transition: .2s linear;
+
+                    &:hover {
+                        background-color: $bg-red-hover ;
+                    }
+                }
+            }
+        }
+    }
+}
